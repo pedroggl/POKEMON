@@ -19,7 +19,7 @@ public class Ataque {
         this.potencia = potencia;
         this.precision = precision;
         //con este if aseguro que si el movimiento es de estado o su potencia sea 0 se corresponda con el mismo
-        if (potencia == 0 || tipo.toString().equals("ESTADO")) {
+        if (potencia == null || tipo.toString().equals("ESTADO")) {
             this.potencia = 0;
             tipo = TipoAtaque.ESTADO;
         }

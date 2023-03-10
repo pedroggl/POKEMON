@@ -33,5 +33,4 @@ public class Entrenador {
             cajaPokemon.add(pokemon);
         }
     }
-
 }
