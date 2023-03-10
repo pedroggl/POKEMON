@@ -30,12 +30,20 @@ public class Pokemon {
         this.mote = mote;
     }
 
+    public String getMote() {
+        return mote;
+    }
+
     public void muestraStats() {
         System.out.println("Pokemon " + mote);
-        System.out.println("Vida: " + hp + ", Atauqe: " + ataque + ", Defensa: " + defensa + "\nAtaque Especial: " + ataqueEsp + ", Defensa Especial: " + defensaEsp + ", Velocidad: " + velocidad);
+        System.out.println("HP: " + hp + ", Ataque: " + ataque + ", Defensa: " + defensa
+                + "\nAtaque Especial: " + ataqueEsp + ", Defensa Especial: " + defensaEsp
+                + ", Velocidad: " + velocidad);
     }
-    
-    public void muestraNombre(){
-        System.out.println("Pokemon "+mote+"\n");
+
+    public void muestraNombre() {
+        //Indicar tambn que pokemon es, para eso hay que generar una coleccion con los nombres pokemon
+        //existentes
+        System.out.println("Pokemon " + mote + "\n");
     }
 }
