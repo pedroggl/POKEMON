@@ -11,10 +11,18 @@ public class Entrenador {
     private int medallas = 0;
     private Pokemon[] equipo = new Pokemon[6];
     private ArrayList<Pokemon> cajaPokemon = new ArrayList<Pokemon>();
+    private ColeccionPokemon coleccion = new ColeccionPokemon();
 
-    public Entrenador(String nombre, Pokemon starter) {
-        this.nombre = nombre;
-        equipo[0] = starter;
+    public Entrenador(String nombre, String starter) throws Exception {
+        try {
+            this.nombre = nombre;
+            if (coleccion.getPokemon(starter) != null) {
+                equipo[0] = coleccion.getPokemon(starter);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al iniciar entrenador");
+            throw e;
+        }
     }
 
     public void capturaPokemon(Pokemon pokemon) {
