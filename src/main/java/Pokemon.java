@@ -46,7 +46,7 @@ public class Pokemon {
     }
 
     public String getNombrePokemon() {
-        return pokemon.toString();
+        return pokemon.toString().toUpperCase();
     }
 
     public void setMote(String mote) {
@@ -58,16 +58,14 @@ public class Pokemon {
     }
 
     public void muestraStats() {
-        System.out.println("Pokemon " + pokemon.toString() + ", alias: " + mote);
+        if (mote.equals("")) {
+            System.out.println("Pokemon " + pokemon.toString());
+        } else {
+            System.out.println("Pokemon " + pokemon.toString() + ", alias: " + mote);
+        }
         System.out.println("HP: " + hp + ", Ataque: " + ataque + ", Defensa: " + defensa
                 + "\nAtaque Especial: " + ataqueEsp + ", Defensa Especial: " + defensaEsp
                 + ", Velocidad: " + velocidad);
-    }
-
-    public void muestraNombre() {
-        //Indicar tambn que pokemon es, para eso hay que generar una coleccion con los nombres pokemon
-        //existentes
-        System.out.println("Pokemon " + mote + "\n");
     }
 
     //devuelve true si el pokemon es alguno d estos
