@@ -7,7 +7,7 @@
 public class Pokemon {
 
     private Pokedex pokemon;
-    private String mote;
+    private String mote = "";
     private final int hp, ataque, defensa, ataqueEsp, defensaEsp, velocidad;
     private final char sexo;          //Hembra-->H; Macho-->M
 //    ArrayList<Ataques> ataques = new ArrayList<Ataques>();
@@ -58,7 +58,7 @@ public class Pokemon {
     }
 
     public void muestraStats() {
-        System.out.println("Pokemon " + mote);
+        System.out.println("Pokemon " + pokemon.toString() + ", alias: " + mote);
         System.out.println("HP: " + hp + ", Ataque: " + ataque + ", Defensa: " + defensa
                 + "\nAtaque Especial: " + ataqueEsp + ", Defensa Especial: " + defensaEsp
                 + ", Velocidad: " + velocidad);

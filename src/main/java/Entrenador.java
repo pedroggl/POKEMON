@@ -20,25 +20,68 @@ public class Entrenador {
                 equipo[0] = coleccion.getPokemon(starter);
             }
         } catch (Exception e) {
-            System.out.println("Error al iniciar entrenador");
+            e = new Exception("Error al iniciar entrenador");
             throw e;
         }
     }
 
-    public void capturaPokemon(Pokemon pokemon) {
+    public Entrenador(String nombre, Pokedex starter) throws Exception {
+        try {
+            this.nombre = nombre;
+            if (coleccion.getPokemon(starter) != null) {
+                equipo[0] = coleccion.getPokemon(starter);
+            }
+        } catch (Exception e) {
+            e = new Exception("Error al iniciar entrenador");
+            throw e;
+        }
+    }
+
+    public void capturaPokemon(Pokedex pokemon) throws Exception {
         boolean cond = true;
         int i = 0;
         try {
             while (cond) {
                 if (equipo[i] == null) {
-                    equipo[i] = pokemon;
+                    equipo[i] = coleccion.getPokemon(pokemon);
                     cond = false;
                 }
                 i++;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Equipo lleno, el pokemon se va a guardar en la caja");
-            cajaPokemon.add(pokemon);
+            cajaPokemon.add(coleccion.getPokemon(pokemon));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }
+
+    //metodo aplicado por polimorfismo
+    public void capturaPokemon(String pokemon) throws Exception {
+        boolean cond = true;
+        int i = 0;
+        try {
+            while (cond) {
+                if (equipo[i] == null) {
+                    equipo[i] = coleccion.getPokemon(pokemon);
+                    cond = false;
+                }
+                i++;
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Equipo lleno, el pokemon se va a guardar en la caja");
+            cajaPokemon.add(coleccion.getPokemon(pokemon));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void muestraEquipo() {
+        int i = 0;
+        while (equipo[i] != null) {
+            equipo[i].muestraStats();
+            i++;
+        }
+    }
+
 }

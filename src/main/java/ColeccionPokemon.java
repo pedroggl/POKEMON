@@ -17,7 +17,7 @@ public class ColeccionPokemon {
         pokemones.add(new Pokemon(Pokedex.SQUIRTLE, 44, 48, 65, 50, 64, 43));
     }
 
-    public Pokemon getPokemon(String nombre) {
+    public Pokemon getPokemon(String nombre) throws Exception {
         Iterator iter = pokemones.iterator();
         while (iter.hasNext()) {
             Pokemon pokemon = (Pokemon) iter.next();
@@ -25,7 +25,18 @@ public class ColeccionPokemon {
                 return pokemon;
             }
         }
-        System.out.println("Error, el pokemon que indicas no existe");
-        return null;
+        throw new Exception("Error, el pokemon que indicas no existe");
+    }
+
+    //definicion del metodo por polimorfismo
+    public Pokemon getPokemon(Pokedex nombre) throws Exception {
+        Iterator iter = pokemones.iterator();
+        while (iter.hasNext()) {
+            Pokemon pokemon = (Pokemon) iter.next();
+            if (pokemon.getNombrePokemon().equals(nombre)) {
+                return pokemon;
+            }
+        }
+        throw new Exception("Error, el pokemon que indicas no existe");
     }
 }
