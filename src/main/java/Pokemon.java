@@ -1,7 +1,7 @@
 
 /**
  *
- * @author galla
+ * @author Pedro G Gallardo
  */
 //import java.util.ArrayList;
 public class Pokemon {

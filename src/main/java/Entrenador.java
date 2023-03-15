@@ -14,6 +14,12 @@ public class Entrenador {
     private ArrayList<Pokemon> cajaPokemon = new ArrayList<Pokemon>();
     private ColeccionPokemon coleccion = new ColeccionPokemon();
 
+ /**
+ *Constructor que recibe 2 elementos
+ * @param nombre que corresponde al nombre del entrenador
+ * @param starter que corresponde al primer pokemon que podemos escoger
+ * @exception Exception puede devolver excepciones si se recibe de manera incorrecta los datos respecto a lo que espera recibir
+ */
     public Entrenador(String nombre, String starter) throws Exception {
         try {
             this.nombre = nombre;
