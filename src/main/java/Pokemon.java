@@ -81,4 +81,9 @@ public class Pokemon {
                 return 0;       //devuelve 0 cuando no es un genero predefinido
         }
     }
+
+    //devuelve la suma de estadisticas
+    public int sumaStats() {
+        return hp + ataque + defensa + ataqueEsp + defensaEsp + velocidad;
+    }
 }
