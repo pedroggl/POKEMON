@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ColeccionPokemon {
-
-    ArrayList<Pokemon> pokemones = new ArrayList<>();
-
+    
+    private ArrayList<Pokemon> pokemones = new ArrayList<>();
+    
     public ColeccionPokemon() {
         //Pokemon(Pokedex pokemon, int hp, int ataque, int defensa, int ataqueEsp, int defensaEsp, int velocidad) {
         pokemones.add(new Pokemon(Pokedex.BULBASAUR, 45, 49, 49, 65, 65, 45));
@@ -163,7 +163,7 @@ public class ColeccionPokemon {
         pokemones.add(new Pokemon(Pokedex.MEWTWO, 106, 110, 90, 154, 90, 130));
         pokemones.add(new Pokemon(Pokedex.MEW, 100, 100, 100, 100, 100, 100));
     }
-
+    
     public Pokemon getPokemon(String nombre) throws Exception {
         Iterator iter = pokemones.iterator();
         while (iter.hasNext()) {
@@ -185,5 +185,9 @@ public class ColeccionPokemon {
             }
         }
         throw new Exception("Error, el pokemon que indicas no existe");
+    }
+    
+    public Pokemon pokemon(int index) {
+        return this.pokemones.get(index);
     }
 }
