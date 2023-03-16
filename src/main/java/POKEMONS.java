@@ -70,35 +70,54 @@ public class POKEMONS {
             Entrenador entrenador1 = new Entrenador(nombre, starter);
             System.out.println("\n-------------------------------------------------------------------\n");
             System.out.println("Muy bien entrenador, este es tu equipo actualmente:");
+            entrenador1.muestraEquipo();
             System.out.println("\n-------------------------------------------------------------------\n");
             do {
                 menu();
                 opc = in.nextInt();
-                in.next();
                 switch (opc) {
                     case 1:
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         System.out.println();
                         entrenador1.muestraEquipo();
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         break;
                     case 2:
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         System.out.println();
                         entrenador1.muestraCaja();
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         break;
                     case 3:
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         System.out.println();
                         int random = aleatorio.nextInt(151);
                         Pokemon salvaje = pokedex.pokemon(random);
                         System.out.println("Vaya, un " + salvaje.getNombrePokemon() + " salvaje ha aparecido\n¿Deseas capturarlo?");
+                        in.nextLine();
                         String respuesta = in.nextLine();
                         if (respuesta.toUpperCase().equals("SI")) {
                             entrenador1.capturaPokemon(salvaje.getNombrePokemon());
                         } else {
                             System.out.println("Bueno no pasa nada");
                         }
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         break;
                     case 4:
+                        System.out.println("\n-------------------------------------------------------------------\n");
+                        entrenador1.muestraEquipo();
+                        System.out.println("\nQue pokemons quieres utilizar en tu combate:");
+                        in.nextLine();
+                        String pokemon1 = in.nextLine();
+                        String pokemon2 = in.nextLine();
+                        System.out.println("\n-------------------------------------------------------------------\n");
+                        System.out.println("Empieza la temporada regular de la liga de Kanto");
+                        System.out.println("Se disponen en el primer combate el " + entrenador1.getPokemon(pokemon1).getNombrePokemon() + " de " + entrenador1.getNombre() + " vs " + entrenador1.getPokemon(pokemon2).getNombrePokemon() + " de " + entrenador1.getNombre() + "\nVamos a mirar de cerca a ver quien gana\n");
+                        System.out.println(Entrenador.combatePokemon(entrenador1.getPokemon(pokemon1), entrenador1.getPokemon(pokemon2)));
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         break;
                     case 5:
+                        System.out.println("\n-------------------------------------------------------------------\n");
                         System.out.println("Muchas gracias por probar el programa\nUN SALUDO!!");
                         break;
                     default:
@@ -106,14 +125,6 @@ public class POKEMONS {
                         break;
                 }
             } while (opc != 5);
-            System.out.println("\n-------------------------------------------------------------------\n");
-
-            System.out.println("\n-------------------------------------------------------------------\n");
-
-            System.out.println("\n-------------------------------------------------------------------\n");
-            System.out.println("Empieza la temporada regular de la liga de Kanto");
-            System.out.println("Se disponen en el primer combate el " + entrenador1.getPokemon("Charmander").getNombrePokemon() + " de " + pedro.getNombre() + " vs " + ramon.getPokemon("Bulbasaur").getNombrePokemon() + " de " + ramon.getNombre() + "\nVamos a mirar de cerca a ver quien gana\n");
-            System.out.println(Entrenador.combatePokemon(pedro.getPokemon("Charmander"), ramon.getPokemon("Bulbasaur")));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
